@@ -11,8 +11,8 @@
 </head>
 <body>
 <h1 style="text-align:center">Error de ingreso. No tienes perfil para esta pagina.</h1>
-</br>
-</br>
+<br/>
+<br/>
 <form:form action="${pageContext.request.contextPath }/logout" method="POST">
 				
 <input type="submit" value="Logout"/>

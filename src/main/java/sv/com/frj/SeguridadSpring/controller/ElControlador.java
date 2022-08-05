@@ -21,6 +21,14 @@ public class ElControlador {
 		return "administradores";
 	}
 	
+	//Agregar mapeo de Ayudantes
+	
+		@GetMapping("/ayudantes")
+		public String muestraAyudantes() {
+			
+			return "ayudantes";
+		}
+	
 	@GetMapping("/acceso-denegado")
 	public String muestraAccesoDenegado() {
 		

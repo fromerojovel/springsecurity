@@ -17,10 +17,10 @@ public class SeguridadAppConfig extends WebSecurityConfigurerAdapter{
 	
 	UserBuilder usuarios=User.withDefaultPasswordEncoder();
 	
-	auth.inMemoryAuthentication().withUser(usuarios.username("fran").password("fran").roles("admin","cajero","usuario"));
+	auth.inMemoryAuthentication().withUser(usuarios.username("fran").password("fran").roles("admin","usuario"));
 	auth.inMemoryAuthentication().withUser(usuarios.username("juan").password("juan").roles("usuario"));
-	auth.inMemoryAuthentication().withUser(usuarios.username("norma").password("norma").roles("admin","cajero","usuario"));
-	auth.inMemoryAuthentication().withUser(usuarios.username("samuel").password("samuel").roles("cajero","usuario"));
+	auth.inMemoryAuthentication().withUser(usuarios.username("norma").password("norma").roles("ayudante","usuario"));
+	auth.inMemoryAuthentication().withUser(usuarios.username("samuel").password("samuel").roles("admin","usuario"));
 	
 	}
 
@@ -31,6 +31,7 @@ public class SeguridadAppConfig extends WebSecurityConfigurerAdapter{
 		http.authorizeRequests()
 		.antMatchers("/").hasRole("usuario")
 		.antMatchers("/administradores/**").hasRole("admin")
+		.antMatchers("/ayudantes/**").hasRole("ayudante")
 		.and().formLogin()
 		.loginPage("/miFormularioLogin")
 		.loginProcessingUrl("/autenticacionUsuario")
